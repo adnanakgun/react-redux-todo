@@ -1,8 +1,9 @@
+import { Dispatch } from "@reduxjs/toolkit";
 import { ToDoItemModel } from "../../domain/to-do-item.model";
 import { ToDoListModel } from "../../domain/to-do-list.model";
 import LocalStorageService from "../../services/local-storage.service";
 
-export const getList = () => (dispatch: any) => {
+export const getList = () => (dispatch: Dispatch) => {
     const list: ToDoListModel = LocalStorageService.getToDoList();
 
     dispatch({
@@ -11,7 +12,7 @@ export const getList = () => (dispatch: any) => {
     });
 };
 
-export const addToList = (item: ToDoItemModel) => async (dispatch: any) => {
+export const addToList = (item: ToDoItemModel) => async (dispatch: Dispatch) => {
 
     await dispatch({
         type: 'ADD_TODO',
@@ -19,7 +20,7 @@ export const addToList = (item: ToDoItemModel) => async (dispatch: any) => {
     });
 };
 
-export const deleteFromList = (index: number) => async (dispatch: any) => {
+export const deleteFromList = (index: number) => async (dispatch: Dispatch) => {
 
     await dispatch({
         type: 'DELETE_TODO',
@@ -27,7 +28,7 @@ export const deleteFromList = (index: number) => async (dispatch: any) => {
     });
 };
 
-export const changeStatus = (index: number) => async (dispatch: any) => {
+export const changeStatus = (index: number) => async (dispatch: Dispatch) => {
 
     await dispatch({
         type: 'CHANGE_TODO',

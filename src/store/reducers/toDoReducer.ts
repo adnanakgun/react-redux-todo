@@ -1,6 +1,7 @@
+import { PayloadAction } from "@reduxjs/toolkit";
 import { ToDoListModel } from "../../domain/to-do-list.model";
 
-const reducer = (state: ToDoListModel = {items: []}, action: any) => {
+const reducer = (state: ToDoListModel = {items: []}, action: PayloadAction<any>) => {
     let items;
     switch (action.type) {
         case 'GET_LIST':

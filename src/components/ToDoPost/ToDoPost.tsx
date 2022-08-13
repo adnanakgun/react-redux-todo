@@ -1,5 +1,5 @@
 import { bindActionCreators, Dispatch } from '@reduxjs/toolkit';
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { connect } from 'react-redux';
 import { ToDoItemModel } from '../../domain/to-do-item.model';
 import * as actions from '../../store/actions';
@@ -9,7 +9,7 @@ interface ActionProps {
 }
 
 class ToDoPost extends React.Component<ActionProps> {
-    handleSubmit = (e: any) => {
+    handleSubmit = (e: FormEvent) => {
     
         e.preventDefault();
         const toDoValue = (document.getElementById('newToDo') as HTMLInputElement).value;
@@ -17,7 +17,7 @@ class ToDoPost extends React.Component<ActionProps> {
             done: false,
             content: toDoValue
         });
-        e.target.reset();
+        (e.target as HTMLFormElement).reset();
     };
 
     render() {
